@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import App from './App';
 /**
  * Referenciar los paquetes de FA para que
  * esten disponibles siempre en el componente
