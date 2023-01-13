@@ -1,13 +1,24 @@
-import React, { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-
+import './custom.scss';
+import 'bootstrap/dist/js/bootstrap.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+/**
+ * Referenciar los paquetes de FA para que
+ * esten disponibles siempre en el componente
+ */
+library.add(fab, fas);
 
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+ReactDOM.render(
+	<React.StrictMode>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</React.StrictMode>,
+	document.getElementById('root')
 );

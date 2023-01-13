@@ -1,0 +1,72 @@
+$breakpoints:(
+	small: '576px',
+	medium: '768px',
+	large: '992px',
+	xlarge: '1200px'
+);
+.vh-50 {
+	height: 50vh;
+}
+.banner {
+	position: relative;
+	margin-top: 3.5rem;
+	@media (min-width: 992px) {
+		margin-top: 70px;	
+	}
+	&::before {
+		content: '';
+		position: fixed;
+		left: 0;
+		width: 100%;
+		height:50vh;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: initial;
+		background-position: center;
+		z-index: -1;
+		filter: brightness(60%);
+	}
+	&-default::before {
+		background-image: url('../../assets/img/header_default_xsmall.jpg');
+		@each $key, $val in $breakpoints {
+			@media (min-width: #{$val}) {
+				background-image: url('../../assets/img/header_default_'+#{$val}+'.jpg');
+			}
+		}
+	}
+	&-burgers::before {
+		background-image: url('../../assets/img/header_iphone_w_xsmall.jpg');
+		@each $key, $val in $breakpoints {
+			@media (min-width: #{$val}) {
+				background-image: url('../../assets/img/header_iphone_'+#{$val}+'.jpg');
+			}
+		}
+	}
+	&-pizzas::before {
+		background-image: url('../../assets/img/header_iphone_xsmall.jpg');
+		@each $key, $val in $breakpoints {
+			@media (min-width: #{$val}) {
+				background-image: url('../../assets/img/header_ipad_'+#{$val}+'.jpg');
+			}
+		}
+	}
+	&-picadas::before {
+		background-image: url('../../assets/img/header_ipad_xsmall.jpg');
+		@each $key, $val in $breakpoints {
+			@media (min-width: #{$val}) {
+				background-image: url('../../assets/img/header_ipad_'+#{$val}+'.jpg');
+			}
+		}
+	}
+	&-title, &-brand {
+		position: relative;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
+	}
+	&-brand {
+		display: inline;
+		padding: 0 0.3rem 0 0.3rem;
+		background: var(--bs-primary);
+	}	
+}
+
